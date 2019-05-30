@@ -4,7 +4,7 @@ import 'package:meta/meta.dart';
 class Task {
   final String id;
   final String title;
-  final bool done;
+  final bool isDone;
 
-  Task({this.id, this.title, this.done});
+  Task({@required this.id, @required this.title, @required this.isDone});
 }

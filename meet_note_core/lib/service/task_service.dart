@@ -24,7 +24,7 @@ class TaskServiceImpl implements TaskService {
     Task task = Task(
       id: Uuid().v4(),
       title: title,
-      done: false,
+      isDone: false,
     );
 
     _taskList.add(task);
@@ -53,11 +53,9 @@ class TaskServiceImpl implements TaskService {
     if (success) {
       _taskController.add(_taskList);
     }
-    return Future.value(false);
+    return Future.value(success);
   }
 
   @override
-  Stream<List<Task>> getAll() {
-    return _taskController.stream;
-  }
+  Stream<List<Task>> getAll() => _taskController.stream;
 }

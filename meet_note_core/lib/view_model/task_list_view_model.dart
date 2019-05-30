@@ -1,6 +1,5 @@
 import 'package:meet_note_core/models/task.dart';
 import 'package:meet_note_core/service/task_service.dart';
-import 'package:meta/meta.dart';
 import 'package:stateful_view_model/stateful_view_model.dart';
 
 class TaskListState implements Cloneable<TaskListState> {
@@ -10,18 +9,12 @@ class TaskListState implements Cloneable<TaskListState> {
 
   List<Task> taskList;
 
-  TaskListState(
-      {@required this.day,
-      @required this.month,
-      @required this.year,
-      @required this.taskList});
+  TaskListState(this.year, this.day, this.month, this.taskList);
 
-  factory TaskListState.initial() =>
-      TaskListState(taskList: [], year: "", month: "", day: "");
+  factory TaskListState.initial() => TaskListState("", "", "", []);
 
   @override
-  TaskListState copy() => TaskListState(
-      day: day, month: month, year: year, taskList: List.of(taskList));
+  TaskListState copy() => TaskListState(day, month, year, List.of(taskList));
 }
 
 class TaskListViewModel extends StatefulViewModel<TaskListState> {
@@ -38,8 +31,7 @@ class TaskListViewModel extends StatefulViewModel<TaskListState> {
       return state;
     });
 
-    //TODO Dispose
-    _taskService.getAll().listen(_handleFetchedList);
+    disposeSubscription(_taskService.getAll().listen(_handleFetchedList));
   }
 
   void createTask(String title) {
@@ -51,9 +43,6 @@ class TaskListViewModel extends StatefulViewModel<TaskListState> {
   // ------
 
   void _handleFetchedList(List<Task> taskList) {
-    setState((state) {
-      state.taskList = taskList;
-      return state;
-    });
+    setState((state) => state..taskList = taskList);
   }
 }
