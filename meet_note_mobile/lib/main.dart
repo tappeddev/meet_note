@@ -11,7 +11,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowMaterialGrid: true,
       theme: ThemeData(
         fontFamily: 'VarelaRound',
         primaryColor: const Color(0xFF50e3a4),

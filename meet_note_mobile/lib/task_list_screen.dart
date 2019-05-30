@@ -42,7 +42,11 @@ class _TaskListScreenState extends State<TaskListScreen> {
 
   Widget buildState(BuildContext context, TaskListState state) {
     return Scaffold(
-      appBar: MeetNoteAppBar(),
+      appBar: MeetNoteAppBar(
+        day: state.day,
+        month: state.month,
+        year: state.year,
+      ),
       resizeToAvoidBottomPadding: false,
       body: ListView(children: [
         SizedBox(height: 60),

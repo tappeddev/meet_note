@@ -3,6 +3,16 @@ import 'package:flutter/material.dart';
 import 'color.dart';
 
 class MeetNoteAppBar extends PreferredSize {
+  final String day;
+  final String month;
+  final String year;
+
+  MeetNoteAppBar({
+    @required this.day,
+    @required this.month,
+    @required this.year,
+  });
+
   @override
   Widget get child {
     return Container(
@@ -10,13 +20,13 @@ class MeetNoteAppBar extends PreferredSize {
       padding: EdgeInsets.symmetric(horizontal: 48),
       child: Row(
         children: [
-          Text("20", style: TextStyle(fontSize: 36, color: fontColor)),
+          Text(day, style: TextStyle(fontSize: 36, color: fontColor)),
           SizedBox(width: 4),
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text("JAN", style: TextStyle(fontSize: 14, color: fontColor)),
-              Text("2018",
+              Text(month, style: TextStyle(fontSize: 14, color: fontColor)),
+              Text(year,
                   style:
                       TextStyle(fontSize: 14, color: fontColor.withOpacity(.5)))
             ],
