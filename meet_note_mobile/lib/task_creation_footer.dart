@@ -41,6 +41,8 @@ class _TaskCreationFooterState extends State<TaskCreationFooter> {
             child: TextField(
               focusNode: _focusNode,
               decoration: InputDecoration(
+                contentPadding: EdgeInsets.all(16),
+                hintText: "What's on your mind?",
                 border: OutlineInputBorder(),
                 fillColor: fontColor,
               ),
