@@ -5,6 +5,10 @@
                [isDone]="task.isDone" (isDoneChanged)="onTaskItemIsDoneChange(task.id)">
     </todo-item>
 </div>
-<text-field [label]="'What is on your mind?'"
-            (input)="onTaskCreationTextFieldChange($event)">
+<text-field id="task-creation-text-field"
+            [label]="'What is on your mind?'"
+            [value]="state.createTaskInput"
+            [buttonIsDisabled]="!state.createTaskButtonIsEnabled"
+            (input)="onTaskCreationTextFieldChange($event)"
+            (buttonClick)="onCreateTaskButtonClick()">
 </text-field>

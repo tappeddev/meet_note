@@ -37,9 +37,10 @@ class TodoListComponent implements OnInit, OnDestroy {
     stateSubscription.cancel();
   }
 
-  void onTaskCreationTextFieldChange(String newInput) {
-
-  }
+  void onTaskCreationTextFieldChange(String newInput) =>
+      viewModel.validateCreateTaskInput(newInput);
 
   void onTaskItemIsDoneChange(String taskId) => viewModel.toggleTask(taskId);
+
+  void onCreateTaskButtonClick() => viewModel.createTask();
 }

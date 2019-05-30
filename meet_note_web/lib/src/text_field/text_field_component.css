@@ -1,11 +1,60 @@
 :host {
-    height: 3.5rem;
+    display: flex;
+    flex-direction: row;
+
+    height: 4rem;
+    background-color: hsl(0, 0%, 95%);
+
+    border-radius: 1rem;
 }
 
 input {
+    flex-grow: 1;
+
     border: none;
     height: 100%;
     width: 100%;
 
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
+
+    font-size: 1.25rem;
+    background-color: transparent;
+}
+
+#button {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 4rem;
+    width: 4rem;
+
+    border-radius: 0.5rem 1rem 1rem 0.5rem;
+
+    color: white;
+    background-color: var(--accent-color);
+    font-size: 1.75rem;
+    cursor: pointer;
+
+    transition: box-shadow 300ms;
+}
+
+#button.button-is-disabled {
+    cursor: not-allowed;
+    background-color: hsl(0, 0%, 70%);
+}
+
+#button.button-is-disabled:hover {
+    box-shadow: none;
+}
+
+#button:hover {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+}
+
+#button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
