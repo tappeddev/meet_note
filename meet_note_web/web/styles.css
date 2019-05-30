@@ -8,3 +8,9 @@ html, body{
 * {
   font-family: "Varela Round", Roboto, Helvetica, Arial, sans-serif;
 }
+
+.clamp-lines {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

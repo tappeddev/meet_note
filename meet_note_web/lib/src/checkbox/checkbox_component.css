@@ -8,6 +8,8 @@
     width: 1.25rem;
 
     border: 1px solid gray;
+
+    cursor: pointer;
 }
 
 :host.checked {

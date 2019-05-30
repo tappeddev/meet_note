@@ -4,12 +4,14 @@
     align-items: center;
 
     height: 3.5rem;
+    overflow: hidden;
 }
 
-:host > * {
+:host > :last-child {
     flex-shrink: 0;
 }
 
 :host > #title {
     flex-grow: 1;
+    margin-right: 2rem;
 }

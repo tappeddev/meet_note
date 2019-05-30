@@ -11,6 +11,7 @@
 }
 
 #list {
+    margin-top: 3.5rem;
     display: flex;
     flex-direction: column;
 }
