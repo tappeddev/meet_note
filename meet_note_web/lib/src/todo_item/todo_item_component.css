@@ -11,7 +11,12 @@
     flex-shrink: 0;
 }
 
-:host > #title {
+#title {
     flex-grow: 1;
     margin-right: 2rem;
+}
+
+#title.is-striked {
+    color: gray;
+    text-decoration: line-through;
 }

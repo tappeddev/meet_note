@@ -1,8 +1,8 @@
-<date-component [day]="state.day" [month]="state.month" [year]="state.year"></date-component>
+<date-component id="date" [day]="state.day" [month]="state.month" [year]="state.year"></date-component>
 <div id="list">
     <todo-item *ngFor="let task of state.taskList"
                [title]="task.title"
-               [isDone]="task.isDone">
+               [isDone]="task.isDone" (isDoneChanged)="onTaskItemIsDoneChange(task.id)">
     </todo-item>
 </div>
 <text-field [label]="'What is on your mind?'"

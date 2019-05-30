@@ -1,0 +1,11 @@
+:host {
+    height: 3.5rem;
+}
+
+input {
+    border: none;
+    height: 100%;
+    width: 100%;
+
+    padding: 1rem 2rem;
+}
