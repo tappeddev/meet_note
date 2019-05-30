@@ -3,8 +3,6 @@ import 'dart:async';
 import 'package:meet_note_core/models/task.dart';
 import 'package:uuid/uuid.dart';
 
-import 'mocked_tasks.dart';
-
 abstract class TaskService {
   Stream<List<Task>> getAll();
 
@@ -16,7 +14,7 @@ abstract class TaskService {
 }
 
 class TaskServiceImpl implements TaskService {
-  List<Task> _taskList = mockedTasks;
+  final _taskList = List<Task>();
 
   StreamController<List<Task>> _taskController = StreamController<List<Task>>();
 
