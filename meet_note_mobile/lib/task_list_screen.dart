@@ -47,12 +47,18 @@ class _TaskListScreenState extends State<TaskListScreen> {
         month: state.month,
         year: state.year,
       ),
-      resizeToAvoidBottomPadding: false,
-      body: ListView(children: [
-        SizedBox(height: 60),
-        ...state.taskList.map(_createTaskItem).toList(),
-      ]),
-      bottomNavigationBar: TaskCreationFooter(onSubmit: _viewModel.createTask),
+      resizeToAvoidBottomPadding: true,
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView(children: [
+              SizedBox(height: 32),
+              ...state.taskList.map(_createTaskItem).toList(),
+            ]),
+          ),
+          TaskCreationFooter(onSubmit: _viewModel.createTask),
+        ],
+      ),
     );
   }
 

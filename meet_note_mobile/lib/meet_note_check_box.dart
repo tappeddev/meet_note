@@ -21,7 +21,11 @@ class _MeetNoteCheckBoxState extends State<MeetNoteCheckBox>
       width: 24,
       height: 24,
       alignment: Alignment.center,
-      child: Icon(Icons.check, color: Colors.white, size: 18),
+      child: Icon(
+        Icons.check,
+        color: widget.isChecked ? Colors.white : Colors.transparent,
+        size: 18,
+      ),
       decoration: BoxDecoration(
         color: widget.isChecked ? primaryColor : Colors.transparent,
         border: Border.all(color: widget.isChecked ? primaryColor : fontColor),
