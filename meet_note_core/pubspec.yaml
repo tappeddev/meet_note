@@ -8,6 +8,7 @@ environment:
   sdk: '>=2.2.0 <3.0.0'
 
 dependencies:
+  uuid: ^2.0.1
   injector: ^1.0.8
   stateful_view_model:
     git:
