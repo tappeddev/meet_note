@@ -3,31 +3,29 @@ import 'package:flutter/material.dart';
 import 'package:meet_note_core/service/task_service.dart';
 import 'package:meet_note_core/view_model/task_list_view_model.dart';
 
+import 'package:injector/injector.dart';
 
 class TaskListScreen extends StatefulWidget {
   @override
   _TaskListScreenState createState() => _TaskListScreenState();
 }
 
-class _TaskListScreenState extends State<TaskListScreen>  {
-
+class _TaskListScreenState extends State<TaskListScreen> {
   TaskListViewModel _taskListViewModel;
 
   @override
   void initState() {
     super.initState();
-    //TODO
-    _taskListViewModel = TaskListViewModel(new TaskServiceImpl());
+    _taskListViewModel =
+        Injector.appInstance.getDependency<TaskListViewModel>();
   }
 
   @override
   Widget build(BuildContext context) {
-
     return StreamBuilder(
       stream: _taskListViewModel.state,
-      builder: (context, snapshot){
-
-        if(!snapshot.hasData){
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
           return Container();
         }
 

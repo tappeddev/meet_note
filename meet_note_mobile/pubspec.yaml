@@ -17,6 +17,7 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  injector: ^1.0.8
   meet_note_core:
     path: ../meet_note_core
   stateful_view_model:
