@@ -38,13 +38,12 @@ class TaskListViewModel extends StatefulViewModel<TaskListState> {
       return state;
     });
 
-    _taskService.getAll().then(_handleFetchedList);
+    //TODO Dispose
+    _taskService.getAll().listen(_handleFetchedList);
   }
 
   void createTask(String title) {
-    _taskService.create(title).then((_) {
-      _taskService.getAll().then(_handleFetchedList);
-    });
+    _taskService.create(title);
   }
 
   // ------

@@ -8,15 +8,16 @@ abstract class TaskService {
 
   Future<bool> delete(String id);
 
-  Future<bool> update(Task task);
+  Future<bool> update(Task updatedTask);
 
   Future<void> create(String title);
 }
 
 class TaskServiceImpl implements TaskService {
   List<Task> _taskList = List();
+  StreamController<List<Task>> _taskController = StreamController<List<Task>>();
 
-  StreamController<Task> sdsd;
+  TaskServiceImpl();
 
   @override
   Future<void> create(String title) {
@@ -27,30 +28,36 @@ class TaskServiceImpl implements TaskService {
     );
 
     _taskList.add(task);
-
+    _taskController.add(_taskList);
     return Future.value();
   }
 
   @override
-  Future<bool> update(Task task) {
+  Future<bool> update(Task updatedTask) {
+    Task oldTask = _taskList.firstWhere((task) => task.id == updatedTask.id,
+        orElse: () => throw Error());
+
+    oldTask = updatedTask;
+
+    _taskController.add(_taskList);
     return Future.value();
   }
 
   @override
   Future<bool> delete(String id) {
+    Task deletedTask =
+        _taskList.firstWhere((task) => task.id == id, orElse: () => null);
+
+    bool success = _taskList.remove(deletedTask);
+
+    if (success) {
+      _taskController.add(_taskList);
+    }
     return Future.value(false);
   }
 
   @override
   Stream<List<Task>> getAll() {
-    return Stream.fromFuture(Future.value([
-      Task(title: "ddd", id: "uuid", done: true),
-      Task(title: "gggf", id: "uuid", done: false),
-      Task(title: "asds", id: "uuid", done: true),
-      Task(title: "dffd", id: "uuid", done: false),
-      Task(title: "dfhh", id: "uuid", done: false),
-      Task(title: "jjjhj", id: "uuid", done: true),
-      Task(title: "hhzh", id: "uuid", done: false)
-    ]));
+    return _taskController.stream;
   }
 }
