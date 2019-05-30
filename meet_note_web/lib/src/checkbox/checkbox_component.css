@@ -1,0 +1,16 @@
+:host {
+    border-radius: 100px;
+    height: 1.25rem;
+    width: 1.25rem;
+
+    border: 1px solid gray;
+}
+
+:host.checked {
+    background-color: #50E3A4;
+    border-color: transparent;
+}
+
+:host #check-icon {
+    color: white;
+}

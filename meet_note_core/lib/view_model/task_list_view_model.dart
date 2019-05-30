@@ -18,16 +18,10 @@ class TaskListState implements Cloneable<TaskListState> {
 class TaskListViewModel extends StatefulViewModel<TaskListState> {
   final TaskService _taskService;
 
-  TaskListViewModel(this._taskService, TaskListState initialState)
+  TaskListViewModel(this._taskService, [TaskListState initialState])
       : super(initialState);
 
-  
-  void createTask(String title){
-
+  void createTask(String title) {
     //TODO
-
   }
-
 }
-
-

@@ -1,3 +1,6 @@
 <div>
-  <todo-item [todo]=""></todo-item>
+    <todo-item *ngFor="let task of state.taskList"
+               [title]="task.title"
+               [done]="task.done">
+    </todo-item>
 </div>
