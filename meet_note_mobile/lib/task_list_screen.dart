@@ -29,13 +29,27 @@ class _TaskListScreenState extends State<TaskListScreen> {
           return Container();
         }
 
+        var state = snapshot.data;
+
         return Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: true,
             title: Text("Test"),
           ),
+          body: ListView(
+            children: _buildList(state),
+          ),
+          bottomNavigationBar: Container(
+            height: 80,
+            width: double.infinity,
+            color: Colors.redAccent,
+          ),
         );
       },
     );
+  }
+
+  List<Widget> _buildList(TaskListState state) {
+    return [];
   }
 }
