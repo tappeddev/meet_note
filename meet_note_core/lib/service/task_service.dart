@@ -14,7 +14,12 @@ abstract class TaskService {
 }
 
 class TaskServiceImpl implements TaskService {
-  List<Task> _taskList = List();
+  List<Task> _taskList = [
+    Task(id: "1", title: "get shit done", isDone: false),
+    Task(id: "2", title: "finish presentation", isDone: false),
+    Task(id: "3", title: "tell meetup dude that we are awesome", isDone: false),
+    Task(id: "4", title: "release tikkr alpha", isDone: true),
+  ];
   StreamController<List<Task>> _taskController = StreamController<List<Task>>();
 
   TaskServiceImpl();
