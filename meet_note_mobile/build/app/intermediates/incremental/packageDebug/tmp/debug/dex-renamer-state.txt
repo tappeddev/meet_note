@@ -1,0 +1,4 @@
+#Thu May 30 08:51:56 CEST 2019
+base.0=C\:\\Users\\stesc\\Documents\\Programming\\meet_note\\meet_note_mobile\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
