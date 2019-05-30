@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c80b0f37-3e16-4513-8966-98e08440624e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meet_note_core/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/meet_note_core/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/meet_note_core/example/meet_note_core_example.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/meet_note_core/lib/meet_note_core.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/meet_note_core/lib/src/meet_note_core_base.dart" beforeDir="false" afterPath="$PROJECT_DIR$/meet_note_core/lib/meet_note_core_base.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meet_note_core/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/meet_note_core/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meet_note_core/test/meet_note_core_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/meet_note_core/test/meet_note_core_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meet_note_mobile/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/meet_note_mobile/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meet_note_core/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/meet_note_web/.gitignore" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,10 +19,15 @@
     <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feat/test_implementation" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -40,9 +40,15 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="1" />
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-15" />
     <option name="width" value="1521" />
     <option name="height" value="1032" />
   </component>
@@ -84,50 +90,18 @@
             <path>
               <item name="meet_note" type="b2602c69:ProjectViewProjectNode" />
               <item name="meet_note" type="462c0819:PsiDirectoryNode" />
-              <item name="meet_note_mobile" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meet_note" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meet_note" type="462c0819:PsiDirectoryNode" />
-              <item name="meet_note_mobile" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meet_note" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meet_note" type="462c0819:PsiDirectoryNode" />
               <item name="meet_note_web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meet_note" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meet_note" type="462c0819:PsiDirectoryNode" />
-              <item name="meet_note_web" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meet_note" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meet_note" type="462c0819:PsiDirectoryNode" />
-              <item name="meet_note_web" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meet_note" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meet_note" type="462c0819:PsiDirectoryNode" />
-              <item name="meet_note_web" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="todo_list" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
@@ -177,43 +151,43 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-5" y="1" width="1014" height="688" extended-state="0" />
+    <frame x="202" y="23" width="1014" height="688" extended-state="0" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="Image Layers" />
-      <window_info id="DB Browser" />
-      <window_info id="UI Designer" />
-      <window_info id="Project Explorer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Capture Tool" />
-      <window_info id="Job Explorer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494759" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.254717" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="DB Execution Console" />
-      <window_info anchor="bottom" id="Dart Analysis" weight="0.3291367" />
-      <window_info anchor="bottom" id="Terminal" weight="0.3285968" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Flutter Performance" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.3291367" />
-      <window_info anchor="bottom" id="Console" />
+      <window_info id="Designer" order="2" />
+      <window_info id="DB Browser" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Project Explorer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Job Explorer" order="8" />
+      <window_info id="Image Layers" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3291367" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3291367" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Flutter Inspector" />
-      <window_info anchor="right" id="Flutter Outline" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Console" order="7" />
+      <window_info anchor="bottom" id="DB Execution Console" order="8" />
+      <window_info anchor="bottom" id="Dart Analysis" order="9" weight="0.3291367" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.34892085" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Flutter Performance" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="13" visible="true" weight="0.3291367" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Flutter Inspector" order="6" />
+      <window_info anchor="right" id="Flutter Outline" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
   </component>
   <component name="editorHistoryManager">
@@ -237,38 +211,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/meet_note_core/lib/meet_note_core.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#205#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meet_note_core/test/meet_note_core_test.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meet_note_core/CHANGELOG.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meet_note_core/README.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meet_note_core/.packages">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/meet_note_core/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/meet_note_core/lib/meet_note_core.dart" />
+    <entry file="file://$PROJECT_DIR$/meet_note_core/CHANGELOG.md" />
+    <entry file="file://$PROJECT_DIR$/meet_note_core/README.md" />
     <entry file="file://$PROJECT_DIR$/meet_note_web/lib/src/todo_list/todo_list_service.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -328,6 +273,17 @@
     <entry file="file://$PROJECT_DIR$/meet_note_core/pubspec.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2805" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meet_note_core/test/meet_note_core_test.dart">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meet_note_core/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meet_note_core/.packages">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-625" />
       </provider>
     </entry>
   </component>
