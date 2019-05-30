@@ -13,7 +13,7 @@
 }
 
 :host.checked {
-    background-color: #50E3A4;
+    background-color: var(--accent-color);
     border-color: transparent;
 }
 

@@ -40,4 +40,6 @@ class TodoListComponent implements OnInit, OnDestroy {
   void onTaskCreationTextFieldChange(String newInput) {
 
   }
+
+  void onTaskItemIsDoneChange(String taskId) => viewModel.toggleTask(taskId);
 }

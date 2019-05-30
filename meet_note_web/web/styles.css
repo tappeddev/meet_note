@@ -1,16 +1,33 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 @import url(https://fonts.googleapis.com/css?family=Material+Icons);
 
-html, body{
-  margin: 0;
+html, body {
+    margin: 0;
+
+    --accent-color: #50E3A4;
 }
 
 * {
-  font-family: "Varela Round", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Varela Round", Roboto, Helvetica, Arial, sans-serif;
+
+    box-sizing: border-box;
+    outline: none;
+
+
+}
+
+*::selection {
+    background: var(--accent-color); /* WebKit/Blink Browsers */
 }
 
 .clamp-lines {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.no-appearance {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }

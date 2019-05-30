@@ -1,2 +1,2 @@
-<span id="title" class="clamp-lines">{{ title }}</span>
-<checkbox [isChecked]="isDone"></checkbox>
+<span id="title" class="clamp-lines" [class.is-striked]="isDone">{{ title }}</span>
+<checkbox [isChecked]="isDone" (isCheckedChange)="onCheckboxIsCheckedChange()"></checkbox>
