@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'VarelaRound',
-        primarySwatch: Colors.blue,
+        primaryColor: const Color(0xFF50e3a4),
       ),
       home: TaskListScreen(),
     );

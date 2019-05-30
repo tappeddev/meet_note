@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:meet_note_core/models/task.dart';
+import 'package:meet_note_mobile/meet_note_check_box.dart';
 
 class TaskItem extends StatefulWidget {
   final Task task;
@@ -31,8 +32,9 @@ class _TaskItemState extends State<TaskItem> {
       padding: EdgeInsets.symmetric(horizontal: 48),
       child: Row(
         children: [
-          Text(widget.task.title),
-          Checkbox(onChanged: widget.onChecked, value: isDone)
+          Expanded(child: Text(widget.task.title, style: textStyle)),
+          SizedBox(width: 8),
+          MeetNoteCheckBox(onChanged: widget.onChecked, isChecked: isDone)
         ],
       ),
     );
