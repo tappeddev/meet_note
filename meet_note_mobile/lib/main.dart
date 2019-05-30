@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meet_note_core/meet_note_core_base.dart';
 
 void main() => runApp(MyApp());
 
@@ -97,6 +98,9 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
+            ),
+            Text(
+                Awesome().isAwesome.toString()
             ),
           ],
         ),

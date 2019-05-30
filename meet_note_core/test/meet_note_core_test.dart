@@ -1,4 +1,4 @@
-import 'package:meet_note_core/meet_note_core.dart';
+import 'package:meet_note_core/meet_note_core_base.dart';
 import 'package:test/test.dart';
 
 void main() {
