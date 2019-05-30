@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:meet_note_mobile/color.dart';
 
 class MeetNoteCheckBox extends StatefulWidget {
   final bool isChecked;
@@ -23,7 +24,7 @@ class _MeetNoteCheckBoxState extends State<MeetNoteCheckBox>
       child: Icon(Icons.check, color: Colors.white, size: 18),
       decoration: BoxDecoration(
         color: widget.isChecked ? primaryColor : Colors.transparent,
-        border: Border.all(color: primaryColor),
+        border: Border.all(color: widget.isChecked ? primaryColor : fontColor),
         shape: BoxShape.circle,
       ),
     );
