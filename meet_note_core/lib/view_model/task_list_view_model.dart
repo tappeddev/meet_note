@@ -9,7 +9,7 @@ class TaskListState implements Cloneable<TaskListState> {
 
   List<Task> taskList;
 
-  TaskListState(this.year, this.day, this.month, this.taskList);
+  TaskListState(this.day, this.month, this.year, this.taskList);
 
   factory TaskListState.initial() => TaskListState("", "", "", []);
 
@@ -25,9 +25,9 @@ class TaskListViewModel extends StatefulViewModel<TaskListState> {
     final now = DateTime.now();
 
     setState((state) {
-      state.year = now.year.toString();
-      state.month = now.month.toString();
-      state.day = now.day.toString();
+      state.day = "${now.day}";
+      state.month = _monthAbbreviation(now.month);
+      state.year = "${now.year}";
       return state;
     });
 
@@ -68,5 +68,25 @@ class TaskListViewModel extends StatefulViewModel<TaskListState> {
 
         return lhs.createdAt.compareTo(rhs.createdAt);
       });
+  }
+
+  String _monthAbbreviation(int month) {
+    assert(month > 0 && month < 13);
+
+    return [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "June",
+      "July",
+      "Aug",
+      "Sept",
+      "Oct",
+      "Nov",
+      "Dec",
+    ][month]
+        .toUpperCase();
   }
 }

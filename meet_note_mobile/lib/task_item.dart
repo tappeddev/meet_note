@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:meet_note_core/models/task.dart';
+import 'package:meet_note_mobile/color.dart';
 import 'package:meet_note_mobile/meet_note_check_box.dart';
 
 class TaskItem extends StatefulWidget {
@@ -18,7 +20,8 @@ class _TaskItemState extends State<TaskItem> {
   Widget build(BuildContext context) {
     final isDone = widget.task.isDone;
 
-    var textStyle = Theme.of(context).textTheme.subhead;
+    var textStyle =
+        Theme.of(context).textTheme.subhead.copyWith(color: fontColor);
 
     if (isDone) {
       textStyle = textStyle.copyWith(
@@ -29,7 +32,7 @@ class _TaskItemState extends State<TaskItem> {
 
     return Material(
       child: InkWell(
-        onTap: widget.onTab,
+        onTap: _onTab,
         child: Container(
           height: 60,
           padding: EdgeInsets.symmetric(horizontal: 48),
@@ -38,7 +41,7 @@ class _TaskItemState extends State<TaskItem> {
               Expanded(child: Text(widget.task.title, style: textStyle)),
               SizedBox(width: 8),
               MeetNoteCheckBox(
-                onChanged: (_) => widget.onTab(),
+                onChanged: (_) => _onTab(),
                 isChecked: isDone,
               )
             ],
@@ -46,5 +49,14 @@ class _TaskItemState extends State<TaskItem> {
         ),
       ),
     );
+  }
+
+  // -----
+  // Helper
+  // -----
+
+  void _onTab() {
+    HapticFeedback.lightImpact();
+    widget.onTab();
   }
 }

@@ -5,6 +5,7 @@ import 'package:injector/injector.dart';
 import 'package:meet_note_core/models/task.dart';
 import 'package:meet_note_core/view_model/task_list_view_model.dart';
 import 'package:meet_note_mobile/meet_note_app_bar.dart';
+import 'package:meet_note_mobile/task_creation_footer.dart';
 import 'package:meet_note_mobile/task_item.dart';
 
 class TaskListScreen extends StatefulWidget {
@@ -41,11 +42,23 @@ class _TaskListScreenState extends State<TaskListScreen> {
 
   Widget buildState(BuildContext context, TaskListState state) {
     return Scaffold(
-      appBar: MeetNoteAppBar(),
-      body: ListView(children: [
-        SizedBox(height: 60),
-        ...state.taskList.map(_createTaskItem).toList(),
-      ]),
+      appBar: MeetNoteAppBar(
+        day: state.day,
+        month: state.month,
+        year: state.year,
+      ),
+      resizeToAvoidBottomPadding: true,
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView(children: [
+              SizedBox(height: 32),
+              ...state.taskList.map(_createTaskItem).toList(),
+            ]),
+          ),
+          TaskCreationFooter(onSubmit: _viewModel.createTask),
+        ],
+      ),
     );
   }
 
