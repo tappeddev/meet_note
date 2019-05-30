@@ -1,0 +1,12 @@
+:host {
+    width: 320px;
+    margin: 3.5rem auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#list {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,27 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+:host > *:last-child {
+    margin-left: 0.5rem;
+}
+
+.vertical-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#day {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+#month, #year {
+    font-size: 0.75rem;
+}
+
+

@@ -1,3 +1,4 @@
+import 'package:angular/angular.dart';
 import 'package:angular/di.dart';
 import 'package:meet_note_web/src/checkbox/checkbox_component.dart';
 
@@ -12,5 +13,8 @@ class TodoItemComponent {
   String title;
 
   @Input()
-  bool done;
+  bool isDone;
+
+  @HostBinding("class.isDone")
+  bool get isDoneClass => isDone;
 }

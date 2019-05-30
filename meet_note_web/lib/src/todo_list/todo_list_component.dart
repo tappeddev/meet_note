@@ -1,6 +1,8 @@
 import 'dart:async';
 
+import 'package:injector/injector.dart' as injector;
 import 'package:angular/angular.dart';
+import 'package:meet_note_web/src/date_component/date_component.dart';
 import 'package:meet_note_web/src/todo_item/todo_item_component.dart';
 import 'package:meet_note_core/view_model/task_list_view_model.dart';
 
@@ -13,6 +15,7 @@ import 'package:meet_note_core/view_model/task_list_view_model.dart';
     directives: [
       TodoItemComponent,
       NgFor,
+      DateComponent,
     ])
 class TodoListComponent implements OnInit, OnDestroy {
   TaskListViewModel viewModel;
@@ -21,8 +24,10 @@ class TodoListComponent implements OnInit, OnDestroy {
 
   @override
   void ngOnInit() {
-    viewModel = TaskListViewModel(null);
+    viewModel =
+        injector.Injector.appInstance.getDependency<TaskListViewModel>();
     stateSubscription = viewModel.state.listen((newState) => state = newState);
+    state = viewModel.initialState;
   }
 
   @override

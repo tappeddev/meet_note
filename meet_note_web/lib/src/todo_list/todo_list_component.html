@@ -1,6 +1,7 @@
-<div>
+<date-component [day]="state.day" [month]="state.month" [year]="state.year"></date-component>
+<div id="list">
     <todo-item *ngFor="let task of state.taskList"
                [title]="task.title"
-               [done]="task.done">
+               [isDone]="task.isDone">
     </todo-item>
 </div>
