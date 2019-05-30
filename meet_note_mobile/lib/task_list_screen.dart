@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:meet_note_core/service/task_service.dart';
 import 'package:meet_note_core/view_model/task_list_view_model.dart';
 
 
@@ -16,11 +17,12 @@ class _TaskListScreenState extends State<TaskListScreen>  {
   void initState() {
     super.initState();
     //TODO
-    _taskListViewModel = TaskListViewModel(null);
+    _taskListViewModel = TaskListViewModel(new TaskServiceImpl());
   }
 
   @override
   Widget build(BuildContext context) {
+
     return StreamBuilder(
       stream: _taskListViewModel.state,
       builder: (context, snapshot){
@@ -30,7 +32,10 @@ class _TaskListScreenState extends State<TaskListScreen>  {
         }
 
         return Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            automaticallyImplyLeading: true,
+            title: Text("Test"),
+          ),
         );
       },
     );

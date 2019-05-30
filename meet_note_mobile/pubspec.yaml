@@ -19,6 +19,9 @@ environment:
 dependencies:
   meet_note_core:
     path: ../meet_note_core
+  stateful_view_model:
+    git:
+      url: git://github.com/tikkrapp/stateful_view_model.git
 
   flutter:
     sdk: flutter

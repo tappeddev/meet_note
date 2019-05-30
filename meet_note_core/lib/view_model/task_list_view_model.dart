@@ -31,6 +31,8 @@ class TaskListViewModel extends StatefulViewModel<TaskListState> {
       : super(initialState ?? TaskListState.initial()) {
     final now = DateTime.now();
 
+    this.state;
+
     setState((state) {
       state.year = now.year.toString();
       state.month = now.month.toString();
