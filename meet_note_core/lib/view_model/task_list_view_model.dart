@@ -16,6 +16,9 @@ class TaskListState implements Cloneable<TaskListState> {
       @required this.year,
       @required this.taskList});
 
+  factory TaskListState.initial() =>
+      TaskListState(taskList: [], year: "", month: "", day: "");
+
   @override
   TaskListState copy() => TaskListState(
       day: day, month: month, year: year, taskList: List.of(taskList));
@@ -24,8 +27,8 @@ class TaskListState implements Cloneable<TaskListState> {
 class TaskListViewModel extends StatefulViewModel<TaskListState> {
   final TaskService _taskService;
 
-  TaskListViewModel(this._taskService, TaskListState initialState)
-      : super(initialState) {
+  TaskListViewModel(this._taskService, [TaskListState initialState])
+      : super(initialState ?? TaskListState.initial()) {
     final now = DateTime.now();
 
     setState((state) {

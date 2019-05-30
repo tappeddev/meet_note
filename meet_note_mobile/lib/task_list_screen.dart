@@ -16,7 +16,7 @@ class _TaskListScreenState extends State<TaskListScreen>  {
   void initState() {
     super.initState();
     //TODO
-    _taskListViewModel = null;
+    _taskListViewModel = TaskListViewModel(null);
   }
 
   @override
