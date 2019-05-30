@@ -24,7 +24,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
+    return StreamBuilder<TaskListState>(
       stream: _viewModel.state,
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
