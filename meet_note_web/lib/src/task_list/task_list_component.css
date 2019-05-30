@@ -26,7 +26,7 @@
     overflow: auto;
 }
 
-#list > todo-item {
+#list > task-item {
     flex-shrink: 0;
 }
 
