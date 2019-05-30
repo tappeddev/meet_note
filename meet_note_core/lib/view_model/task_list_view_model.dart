@@ -34,8 +34,22 @@ class TaskListViewModel extends StatefulViewModel<TaskListState> {
     disposeSubscription(_taskService.getAll().listen(_handleFetchedList));
   }
 
+  // -----
+  // Public Api
+  // -----
+
   void createTask(String title) {
     _taskService.create(title);
+  }
+
+  void toggleTask(String taskId) {
+    final task = getState()
+        .taskList
+        .firstWhere((task) => task.id == taskId, orElse: () => null);
+
+    assert(task != null, "task with id $taskId not found.");
+
+    _taskService.update(task.copyWith(isDone: !task.isDone));
   }
 
   // ------
@@ -43,6 +57,16 @@ class TaskListViewModel extends StatefulViewModel<TaskListState> {
   // ------
 
   void _handleFetchedList(List<Task> taskList) {
-    setState((state) => state..taskList = taskList);
+    setState((state) => state..taskList = _sortTasks(taskList));
+  }
+
+  List<Task> _sortTasks(List<Task> tasks) {
+    return List.of(tasks)
+      ..sort((lhs, rhs) {
+        if (lhs.isDone) return 1;
+        if (rhs.isDone) return 0;
+
+        return lhs.createdAt.compareTo(rhs.createdAt);
+      });
   }
 }

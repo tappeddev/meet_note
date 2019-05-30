@@ -5,9 +5,9 @@ import 'package:meet_note_mobile/meet_note_check_box.dart';
 
 class TaskItem extends StatefulWidget {
   final Task task;
-  final ValueChanged onChecked;
+  final VoidCallback onTab;
 
-  TaskItem({@required this.task, @required this.onChecked});
+  TaskItem({@required this.task, @required this.onTab});
 
   @override
   _TaskItemState createState() => _TaskItemState();
@@ -27,15 +27,23 @@ class _TaskItemState extends State<TaskItem> {
       );
     }
 
-    return Container(
-      height: 60,
-      padding: EdgeInsets.symmetric(horizontal: 48),
-      child: Row(
-        children: [
-          Expanded(child: Text(widget.task.title, style: textStyle)),
-          SizedBox(width: 8),
-          MeetNoteCheckBox(onChanged: widget.onChecked, isChecked: isDone)
-        ],
+    return Material(
+      child: InkWell(
+        onTap: widget.onTab,
+        child: Container(
+          height: 60,
+          padding: EdgeInsets.symmetric(horizontal: 48),
+          child: Row(
+            children: [
+              Expanded(child: Text(widget.task.title, style: textStyle)),
+              SizedBox(width: 8),
+              MeetNoteCheckBox(
+                onChanged: (_) => widget.onTab(),
+                isChecked: isDone,
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

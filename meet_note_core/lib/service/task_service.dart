@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:meet_note_core/models/task.dart';
 import 'package:uuid/uuid.dart';
 
+import 'mocked_tasks.dart';
+
 abstract class TaskService {
   Stream<List<Task>> getAll();
 
@@ -14,12 +16,8 @@ abstract class TaskService {
 }
 
 class TaskServiceImpl implements TaskService {
-  List<Task> _taskList = [
-    Task(id: "1", title: "get shit done", isDone: false),
-    Task(id: "2", title: "finish presentation", isDone: false),
-    Task(id: "3", title: "tell meetup dude that we are awesome", isDone: false),
-    Task(id: "4", title: "release tikkr alpha", isDone: true),
-  ];
+  List<Task> _taskList = mockedTasks;
+
   StreamController<List<Task>> _taskController = StreamController<List<Task>>();
 
   TaskServiceImpl();
@@ -30,6 +28,7 @@ class TaskServiceImpl implements TaskService {
       id: Uuid().v4(),
       title: title,
       isDone: false,
+      createdAt: DateTime.now(),
     );
 
     _taskList.add(task);
@@ -39,10 +38,8 @@ class TaskServiceImpl implements TaskService {
 
   @override
   Future<bool> update(Task updatedTask) {
-    Task oldTask = _taskList.firstWhere((task) => task.id == updatedTask.id,
-        orElse: () => throw Error());
-
-    oldTask = updatedTask;
+    _taskList.removeWhere((task) => task.id == updatedTask.id);
+    _taskList.add(updatedTask);
 
     _taskController.add(_taskList);
     return Future.value();
