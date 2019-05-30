@@ -62,5 +62,8 @@ class TaskServiceImpl implements TaskService {
   }
 
   @override
-  Stream<List<Task>> getAll() => _taskController.stream;
+  Stream<List<Task>> getAll() {
+    _taskController.add(_taskList);
+    return _taskController.stream;
+  }
 }

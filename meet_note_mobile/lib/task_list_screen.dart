@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:meet_note_core/service/task_service.dart';
-import 'package:meet_note_core/view_model/task_list_view_model.dart';
-
 import 'package:injector/injector.dart';
+import 'package:meet_note_core/models/task.dart';
+import 'package:meet_note_core/view_model/task_list_view_model.dart';
+import 'package:meet_note_mobile/meet_note_app_bar.dart';
+import 'package:meet_note_mobile/task_item.dart';
 
 class TaskListScreen extends StatefulWidget {
   @override
@@ -29,27 +30,25 @@ class _TaskListScreenState extends State<TaskListScreen> {
           return Container();
         }
 
-        var state = snapshot.data;
-
-        return Scaffold(
-          appBar: AppBar(
-            automaticallyImplyLeading: true,
-            title: Text("Test"),
-          ),
-          body: ListView(
-            children: _buildList(state),
-          ),
-          bottomNavigationBar: Container(
-            height: 80,
-            width: double.infinity,
-            color: Colors.redAccent,
-          ),
-        );
+        return buildState(context, snapshot.data);
       },
     );
   }
 
-  List<Widget> _buildList(TaskListState state) {
-    return [];
+  // -----
+  // Widget Builders
+  // -----
+
+  Widget buildState(BuildContext context, TaskListState state) {
+    return Scaffold(
+      appBar: MeetNoteAppBar(),
+      body: ListView(children: _buildList(state.taskList)),
+    );
+  }
+
+  List<Widget> _buildList(List<Task> tasks) {
+    return tasks
+        .map((task) => TaskItem(task: task, onChecked: (_) {}))
+        .toList();
   }
 }
