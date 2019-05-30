@@ -1,8 +1,6 @@
-
 import 'package:meet_note_core/models/task.dart';
 
 abstract class TaskService {
-
   Future<List<Task>> getAll();
 
   Future<bool> delete(String id);
@@ -11,22 +9,26 @@ abstract class TaskService {
 }
 
 class TaskServiceImpl implements TaskService {
-
   @override
   Future<void> create(String title) {
-    // TODO: implement create
-    return null;
+    return Future.value();
   }
 
   @override
   Future<bool> delete(String id) {
-    // TODO: implement delete
-    return null;
+    return Future.value(false);
   }
 
   @override
   Future<List<Task>> getAll() {
-    // TODO: implement getAll
-    return null;
+    return Future.value([
+      Task(title: "ddd", id: "uuid", done: true),
+      Task(title: "gggf", id: "uuid", done: false),
+      Task(title: "asds", id: "uuid", done: true),
+      Task(title: "dffd", id: "uuid", done: false),
+      Task(title: "dfhh", id: "uuid", done: false),
+      Task(title: "jjjhj", id: "uuid", done: true),
+      Task(title: "hhzh", id: "uuid", done: false)
+    ]);
   }
 }
