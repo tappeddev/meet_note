@@ -36,6 +36,12 @@ class _TaskListScreenState extends State<TaskListScreen> {
     );
   }
 
+  @override
+  void dispose() {
+    _viewModel.dispose();
+    super.dispose();
+  }
+
   // -----
   // Widget Builders
   // -----
@@ -56,7 +62,12 @@ class _TaskListScreenState extends State<TaskListScreen> {
               ...state.taskList.map(_createTaskItem).toList(),
             ]),
           ),
-          TaskCreationFooter(onSubmit: _viewModel.createTask),
+          TaskCreationFooter(
+            text: state.createTaskInput,
+            createButtonEnabled: state.createTaskButtonIsEnabled,
+            onTextChanged: _viewModel.validateCreateTaskInput,
+            onSubmit: _viewModel.createTask,
+          ),
         ],
       ),
     );
