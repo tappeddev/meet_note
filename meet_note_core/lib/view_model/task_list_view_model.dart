@@ -86,7 +86,7 @@ class TaskListViewModel extends StatefulViewModel<TaskListState> {
   }
 
   String _monthAbbreviation(int month) {
-    assert(month > 0 && month < 13);
+    assert(month >= 1 && month <= 12);
 
     return [
       "Jan",
@@ -101,7 +101,7 @@ class TaskListViewModel extends StatefulViewModel<TaskListState> {
       "Oct",
       "Nov",
       "Dec",
-    ][month]
+    ][month - 1]
         .toUpperCase();
   }
 }
