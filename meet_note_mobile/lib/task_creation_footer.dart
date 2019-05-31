@@ -4,9 +4,17 @@ import 'package:flutter/widgets.dart';
 import 'package:meet_note_mobile/color.dart';
 
 class TaskCreationFooter extends StatefulWidget {
-  final ValueChanged<String> onSubmit;
+  final String text;
+  final bool createButtonEnabled;
+  final VoidCallback onSubmit;
+  final ValueChanged<String> onTextChanged;
 
-  TaskCreationFooter({@required this.onSubmit});
+  TaskCreationFooter({
+    @required this.text,
+    @required this.createButtonEnabled,
+    @required this.onSubmit,
+    @required this.onTextChanged,
+  });
 
   @override
   _TaskCreationFooterState createState() => _TaskCreationFooterState();
@@ -15,7 +23,7 @@ class TaskCreationFooter extends StatefulWidget {
 class _TaskCreationFooterState extends State<TaskCreationFooter> {
   bool _shadowEnabled = false;
 
-  final _textEditingController = TextEditingController();
+  final _textController = TextEditingController();
 
   final _focusNode = FocusNode();
 
@@ -29,6 +37,8 @@ class _TaskCreationFooterState extends State<TaskCreationFooter> {
 
   @override
   Widget build(BuildContext context) {
+    _setTextIfNeeded();
+
     return Container(
       height: 92,
       decoration: BoxDecoration(
@@ -40,13 +50,14 @@ class _TaskCreationFooterState extends State<TaskCreationFooter> {
           Expanded(
             child: TextField(
               focusNode: _focusNode,
+              onChanged: widget.onTextChanged,
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(16),
                 hintText: "What's on your mind?",
                 border: OutlineInputBorder(),
                 fillColor: fontColor,
               ),
-              controller: _textEditingController,
+              controller: _textController,
             ),
           ),
           SizedBox(width: 16),
@@ -55,12 +66,14 @@ class _TaskCreationFooterState extends State<TaskCreationFooter> {
             shape: CircleBorder(),
             child: InkWell(
                 borderRadius: BorderRadius.circular(40),
-                child: Container(
-                  height: 40,
-                  width: 40,
+                child: AnimatedContainer(
+                  duration: Duration(milliseconds: 180),
+                  curve: Curves.easeOut,
+                  height: widget.createButtonEnabled ? 40 : 0,
+                  width: widget.createButtonEnabled ? 40 : 0,
                   child: Icon(Icons.add, color: Colors.white),
                 ),
-                onTap: () => widget.onSubmit(_textEditingController.text)),
+                onTap: widget.onSubmit),
             color: Theme.of(context).primaryColor,
           ),
         ],
@@ -71,6 +84,21 @@ class _TaskCreationFooterState extends State<TaskCreationFooter> {
   // -----
   // Helper
   // -----
+
+  void _setTextIfNeeded() {
+    if (_textController.text == widget.text) return;
+
+    var cursorPos = _textController.selection;
+
+    _textController.text = widget.text;
+
+    if (cursorPos.start > _textController.text.length) {
+      cursorPos = TextSelection.fromPosition(
+          TextPosition(offset: _textController.text.length));
+    }
+
+    _textController.selection = cursorPos;
+  }
 
   BoxShadow get _shadow => BoxShadow(
       color: Colors.black.withOpacity(.1),
