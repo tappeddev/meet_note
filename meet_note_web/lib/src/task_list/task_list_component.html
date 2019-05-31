@@ -7,7 +7,7 @@
 </div>
 <text-field id="task-creation-text-field"
             [label]="'What is on your mind?'"
-            [value]="state.createTaskInput"
+            [value]="state.taskName"
             [buttonIsDisabled]="!state.createTaskButtonIsEnabled"
             (input)="onTaskCreationTextFieldChange($event)"
             (buttonClick)="onCreateTaskButtonClick()">

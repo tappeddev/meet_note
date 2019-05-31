@@ -63,9 +63,9 @@ class _TaskListScreenState extends State<TaskListScreen> {
             ]),
           ),
           TaskCreationFooter(
-            text: state.createTaskInput,
+            text: state.taskName,
             createButtonEnabled: state.createTaskButtonIsEnabled,
-            onTextChanged: _viewModel.validateCreateTaskInput,
+            onTextChanged: _viewModel.validateTaskName,
             onSubmit: _viewModel.createTask,
           ),
         ],

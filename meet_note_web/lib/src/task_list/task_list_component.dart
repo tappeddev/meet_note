@@ -47,7 +47,7 @@ class TaskListComponent implements OnInit, OnDestroy {
   }
 
   void onTaskCreationTextFieldChange(String newInput) =>
-      viewModel.validateCreateTaskInput(newInput);
+      viewModel.validateTaskName(newInput);
 
   void onTaskItemIsDoneChange(String taskId) => viewModel.toggleTask(taskId);
 

@@ -8,18 +8,18 @@ class TaskListState implements Cloneable<TaskListState> {
   String month;
 
   bool createTaskButtonIsEnabled;
-  String createTaskInput;
+  String taskName;
 
   List<Task> taskList;
 
   TaskListState(this.day, this.month, this.year, this.createTaskButtonIsEnabled,
-      this.createTaskInput, this.taskList);
+      this.taskName, this.taskList);
 
   factory TaskListState.initial() => TaskListState("", "", "", false, "", []);
 
   @override
   TaskListState copy() => TaskListState(day, month, year,
-      createTaskButtonIsEnabled, createTaskInput, List.of(taskList));
+      createTaskButtonIsEnabled, taskName, List.of(taskList));
 }
 
 class TaskListViewModel extends StatefulViewModel<TaskListState> {
@@ -46,10 +46,10 @@ class TaskListViewModel extends StatefulViewModel<TaskListState> {
   void createTask() {
     final createTaskInputIsValid = getState().createTaskButtonIsEnabled;
     if (createTaskInputIsValid) {
-      _taskService.create(getState().createTaskInput);
+      _taskService.create(getState().taskName);
       setState((state) => state
         ..createTaskButtonIsEnabled = false
-        ..createTaskInput = "");
+        ..taskName = "");
     }
   }
 
@@ -63,9 +63,9 @@ class TaskListViewModel extends StatefulViewModel<TaskListState> {
     _taskService.update(task.copyWith(isDone: !task.isDone));
   }
 
-  void validateCreateTaskInput(String input) => setState((state) => state
+  void validateTaskName(String input) => setState((state) => state
     ..createTaskButtonIsEnabled = input.isNotEmpty
-    ..createTaskInput = input);
+    ..taskName = input);
 
   // ------
   // Helper
