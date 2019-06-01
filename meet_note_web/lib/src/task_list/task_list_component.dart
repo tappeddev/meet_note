@@ -38,11 +38,9 @@ class TaskListComponent implements OnInit, OnDestroy {
     _stateSubscription = viewModel.state.listen((newState) => state = newState);
     state = viewModel.initialState;
 
-    // Create a task when the return ke` gets pressed.
+    // Create a task when the enter key gets pressed.
     _keyboardSubscription = document.onKeyPress.listen((KeyboardEvent event) {
-      if (event.keyCode == 13) {
-        viewModel.createTask();
-      }
+      if (event.key == "Enter") viewModel.createTask();
     });
   }
 
@@ -52,14 +50,4 @@ class TaskListComponent implements OnInit, OnDestroy {
     _stateSubscription.cancel();
     _keyboardSubscription.cancel();
   }
-
-  /// Gets triggered when the user enters text in the task creation text field.
-  void onTaskCreationTextFieldChange(String newInput) =>
-      viewModel.validateTaskName(newInput);
-
-  /// Gets triggered when the user presses on the checkbox of a task item.
-  void onTaskItemIsDoneChange(String taskId) => viewModel.toggleTask(taskId);
-
-  /// Gets triggered when the user presses the green add button.
-  void onCreateTaskButtonClick() => viewModel.createTask();
 }
