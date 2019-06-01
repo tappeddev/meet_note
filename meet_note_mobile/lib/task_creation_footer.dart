@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:meet_note_mobile/color.dart';
 
-class TaskCreationFooter extends StatefulWidget {
+class SubmitTextField extends StatefulWidget {
   final String text;
   final bool createButtonEnabled;
   final VoidCallback onSubmit;
   final ValueChanged<String> onTextChanged;
 
-  TaskCreationFooter({
+  SubmitTextField({
     @required this.text,
     @required this.createButtonEnabled,
     @required this.onSubmit,
@@ -17,66 +16,70 @@ class TaskCreationFooter extends StatefulWidget {
   });
 
   @override
-  _TaskCreationFooterState createState() => _TaskCreationFooterState();
+  _SubmitTextFieldState createState() => _SubmitTextFieldState();
 }
 
-class _TaskCreationFooterState extends State<TaskCreationFooter> {
-  bool _shadowEnabled = false;
-
+class _SubmitTextFieldState extends State<SubmitTextField> {
   final _textController = TextEditingController();
-
-  final _focusNode = FocusNode();
-
-  @override
-  void initState() {
-    _focusNode.addListener(() {
-      setState(() => _shadowEnabled = _focusNode.hasFocus);
-    });
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
-    _setTextIfNeeded();
-
     return Container(
-      height: 92,
+      height: 64,
+      alignment: Alignment.center,
+      margin: EdgeInsets.symmetric(horizontal: 40, vertical: 8),
       decoration: BoxDecoration(
-          color: Theme.of(context).scaffoldBackgroundColor,
-          boxShadow: _shadowEnabled ? [_shadow] : []),
-      padding: EdgeInsets.only(bottom: 24, right: 48, left: 48 - 4.0, top: 16),
+        borderRadius: BorderRadius.circular(16),
+        color: const Color(0xffefeef0),
+      ),
       child: Row(
         children: [
-          Expanded(
-            child: TextField(
-              focusNode: _focusNode,
-              onChanged: widget.onTextChanged,
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.all(16),
-                hintText: "What's on your mind?",
-                border: OutlineInputBorder(),
-                fillColor: fontColor,
-              ),
-              controller: _textController,
-            ),
-          ),
+          SizedBox(width: 8),
+          Expanded(child: _buildTextField()),
           SizedBox(width: 16),
-          Material(
-            elevation: 0.0,
-            shape: CircleBorder(),
-            child: InkWell(
-                borderRadius: BorderRadius.circular(40),
-                child: AnimatedContainer(
-                  duration: Duration(milliseconds: 180),
-                  curve: Curves.easeOut,
-                  height: widget.createButtonEnabled ? 40 : 0,
-                  width: widget.createButtonEnabled ? 40 : 0,
-                  child: Icon(Icons.add, color: Colors.white),
-                ),
-                onTap: widget.onSubmit),
-            color: Theme.of(context).primaryColor,
-          ),
+          _buildSubmitButton()
         ],
+      ),
+    );
+  }
+
+  // -----
+  // Widget Builders
+  // -----
+
+  Widget _buildTextField() {
+    _setTextIfNeeded();
+
+    return TextField(
+      onChanged: widget.onTextChanged,
+      decoration: InputDecoration(
+          border: InputBorder.none,
+          hintText: "What's on your mind?",
+          contentPadding: EdgeInsets.all(8)),
+      controller: _textController,
+    );
+  }
+
+  Widget _buildSubmitButton() {
+    final color = widget.createButtonEnabled
+        ? Theme.of(context).primaryColor
+        : const Color(0xffb5b3b5);
+
+    final border = BorderRadius.only(
+      bottomRight: Radius.circular(16),
+      bottomLeft: Radius.circular(8),
+      topRight: Radius.circular(16),
+      topLeft: Radius.circular(8),
+    );
+
+    return InkWell(
+      onTap: widget.createButtonEnabled ? widget.onSubmit : null,
+      child: Container(
+        width: 64,
+        height: 64,
+        alignment: Alignment.center,
+        child: Icon(Icons.add, color: Colors.white, size: 30),
+        decoration: BoxDecoration(color: color, borderRadius: border),
       ),
     );
   }
@@ -99,10 +102,4 @@ class _TaskCreationFooterState extends State<TaskCreationFooter> {
 
     _textController.selection = cursorPos;
   }
-
-  BoxShadow get _shadow => BoxShadow(
-      color: Colors.black.withOpacity(.1),
-      spreadRadius: 10,
-      blurRadius: 10,
-      offset: Offset(0, -1));
 }

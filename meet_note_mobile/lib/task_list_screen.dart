@@ -62,7 +62,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
               ...state.taskList.map(_createTaskItem).toList(),
             ]),
           ),
-          TaskCreationFooter(
+          SubmitTextField(
             text: state.taskName,
             createButtonEnabled: state.createTaskButtonIsEnabled,
             onTextChanged: _viewModel.validateTaskName,
