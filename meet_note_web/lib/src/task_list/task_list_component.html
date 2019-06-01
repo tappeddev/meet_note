@@ -1,17 +1,1 @@
-<date-component [day]="state.day"
-                [month]="state.month"
-                [year]="state.year">
-</date-component>
-<div id="list">
-    <task-item *ngFor="let task of state.taskList"
-               [title]="task.title"
-               [isDone]="task.isDone"
-               (isDoneChanged)="viewModel.toggleTask(task.id)">
-    </task-item>
-</div>
-<text-field [label]="'What is on your mind?'"
-            [value]="state.taskName"
-            [buttonIsDisabled]="!state.createTaskButtonIsEnabled"
-            (input)="viewModel.validateTaskName($event)"
-            (buttonClick)="viewModel.createTask()">
-</text-field>
+<!-- TODO -->
