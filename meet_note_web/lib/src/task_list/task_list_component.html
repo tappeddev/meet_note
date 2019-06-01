@@ -1,5 +1,4 @@
-<date-component id="date"
-                [day]="state.day"
+<date-component [day]="state.day"
                 [month]="state.month"
                 [year]="state.year">
 </date-component>
@@ -10,8 +9,7 @@
                (isDoneChanged)="viewModel.toggleTask(task.id)">
     </task-item>
 </div>
-<text-field id="task-creation-text-field"
-            [label]="'What is on your mind?'"
+<text-field [label]="'What is on your mind?'"
             [value]="state.taskName"
             [buttonIsDisabled]="!state.createTaskButtonIsEnabled"
             (input)="viewModel.validateTaskName($event)"
