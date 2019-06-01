@@ -1,0 +1,22 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    height: 3.5rem;
+    overflow: hidden;
+}
+
+:host > :last-child {
+    flex-shrink: 0;
+}
+
+#title {
+    flex-grow: 1;
+    margin-right: 2rem;
+}
+
+#title.is-striked {
+    color: gray;
+    text-decoration: line-through;
+}

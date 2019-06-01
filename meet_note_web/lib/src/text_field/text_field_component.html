@@ -1,0 +1,10 @@
+<input class="no-appearance"
+       type="text"
+       [value]="value"
+       (input)="onInputChange($event.target.value)"
+       placeholder="{{ label }}">
+<div id="button"
+     (click)="onButtonClick()"
+     [class.button-is-disabled]="buttonIsDisabled">
+    <span id="button-icon" class="mdi mdi-plus"></span>
+</div>

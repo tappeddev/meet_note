@@ -8,6 +8,7 @@ environment:
   sdk: '>=2.2.0 <3.0.0'
 
 dependencies:
+  injector: ^1.0.8
   meet_note_core:
     path: ../meet_note_core
   angular: ^5.2.0

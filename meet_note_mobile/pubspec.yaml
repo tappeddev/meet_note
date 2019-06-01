@@ -14,11 +14,15 @@ description: The mobile project
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
+  injector: ^1.0.8
   meet_note_core:
     path: ../meet_note_core
+  stateful_view_model:
+    git:
+      url: git://github.com/tikkrapp/stateful_view_model.git
 
   flutter:
     sdk: flutter
@@ -37,6 +41,10 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  fonts:
+    - family: VarelaRound
+      fonts:
+        - asset: fonts/VarelaRound-Regular.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
