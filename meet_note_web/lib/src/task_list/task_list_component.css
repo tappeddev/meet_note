@@ -12,7 +12,7 @@
     overflow: hidden;
 }
 
-#date {
+date-component {
     margin: 3.5rem 2rem;
 }
 
@@ -30,7 +30,7 @@
     flex-shrink: 0;
 }
 
-#task-creation-text-field {
+text-field {
     flex-shrink: 0;
     margin: 1rem;
 }

@@ -15,51 +15,21 @@ import 'package:meet_note_core/view_model/task_list_view_model.dart';
       'task_list_component.css'
     ],
     directives: [
-      TaskItemComponent,
       NgFor,
+      TaskItemComponent,
       DateComponent,
       TextFieldComponent,
     ])
 class TaskListComponent implements OnInit, OnDestroy {
-  TaskListViewModel viewModel;
-  TaskListState state;
-
-  StreamSubscription<TaskListState> _stateSubscription;
-  StreamSubscription<KeyboardEvent> _keyboardSubscription;
+  // TODO
 
   @override
   void ngOnInit() {
-    // Get the view model from the injector.
-    viewModel =
-        injector.Injector.appInstance.getDependency<TaskListViewModel>();
-
-    // Listen to state updates
-    // and update the state of this component accordingly.
-    _stateSubscription = viewModel.state.listen((newState) => state = newState);
-    state = viewModel.initialState;
-
-    // Create a task when the return ke` gets pressed.
-    _keyboardSubscription = document.onKeyPress.listen((KeyboardEvent event) {
-      if (event.keyCode == 13) {
-        viewModel.createTask();
-      }
-    });
+    // TODO
   }
 
   @override
   void ngOnDestroy() {
-    // Cancel all open subscriptions to avoid memory leaks.
-    _stateSubscription.cancel();
-    _keyboardSubscription.cancel();
+    // TODO
   }
-
-  /// Gets triggered when the user enters text in the task creation text field.
-  void onTaskCreationTextFieldChange(String newInput) =>
-      viewModel.validateTaskName(newInput);
-
-  /// Gets triggered when the user presses on the checkbox of a task item.
-  void onTaskItemIsDoneChange(String taskId) => viewModel.toggleTask(taskId);
-
-  /// Gets triggered when the user presses the green add button.
-  void onCreateTaskButtonClick() => viewModel.createTask();
 }
