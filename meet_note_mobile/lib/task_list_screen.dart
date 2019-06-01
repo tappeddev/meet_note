@@ -5,7 +5,7 @@ import 'package:injector/injector.dart';
 import 'package:meet_note_core/models/task.dart';
 import 'package:meet_note_core/view_model/task_list_view_model.dart';
 import 'package:meet_note_mobile/meet_note_app_bar.dart';
-import 'package:meet_note_mobile/task_creation_footer.dart';
+import 'package:meet_note_mobile/submit_text_field.dart';
 import 'package:meet_note_mobile/task_item.dart';
 
 class TaskListScreen extends StatefulWidget {
