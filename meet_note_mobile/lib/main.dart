@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:meet_note_core/dependencies/register_dependencies.dart';
+
 
 void main() {
+  //registerDependencies();
   runApp(MyApp());
 }
 
