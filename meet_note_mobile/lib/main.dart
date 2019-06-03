@@ -10,9 +10,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'VarelaRound',
-        primaryColor: const Color(0xFF50e3a4),
+        primaryColor: Colors.blue
       ),
-      home: MyHomePage(),
+      home: MyHomePage(title: "Flutter example app"),
     );
   }
 }
