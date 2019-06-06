@@ -65,7 +65,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
             ),
             SubmitTextField(
               text: state.taskName,
-              createButtonEnabled: state.createTaskButtonIsEnabled,
+              createButtonEnabled: state.isCreateButtonEnabled,
               onTextChanged: _viewModel.validateTaskName,
               onSubmit: _viewModel.createTask,
             ),
