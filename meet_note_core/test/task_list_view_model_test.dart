@@ -19,7 +19,7 @@ void main() {
   });
 
   test("button is enabled if task name was set", () {
-    viewModel.validateTaskName("Create Tests");
+    viewModel.setTaskName("Create Tests");
     expect(
       viewModel.state.map((state) => state.isCreateButtonEnabled),
       emits(true),
@@ -27,7 +27,7 @@ void main() {
   });
 
   test("toggled task marks task as done", () async {
-    viewModel.validateTaskName("New task");
+    viewModel.setTaskName("New task");
     viewModel.createTask();
 
     final taskList = await viewModel.state
@@ -45,7 +45,7 @@ void main() {
   });
 
   test("create task clears textfield", () async {
-    viewModel.validateTaskName("Super valid task name");
+    viewModel.setTaskName("Super valid task name");
     viewModel.createTask();
 
     final newTaskTitle = streamOf((state) => state.taskList)
