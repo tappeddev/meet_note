@@ -54,21 +54,23 @@ class _TaskListScreenState extends State<TaskListScreen> {
         year: state.year,
       ),
       resizeToAvoidBottomPadding: true,
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView(children: [
-              SizedBox(height: 32),
-              ...state.taskList.map(_createTaskItem).toList(),
-            ]),
-          ),
-          SubmitTextField(
-            text: state.taskName,
-            createButtonEnabled: state.createTaskButtonIsEnabled,
-            onTextChanged: _viewModel.validateTaskName,
-            onSubmit: _viewModel.createTask,
-          ),
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView(children: [
+                SizedBox(height: 32),
+                ...state.taskList.map(_createTaskItem).toList(),
+              ]),
+            ),
+            SubmitTextField(
+              text: state.taskName,
+              createButtonEnabled: state.createTaskButtonIsEnabled,
+              onTextChanged: _viewModel.validateTaskName,
+              onSubmit: _viewModel.createTask,
+            ),
+          ],
+        ),
       ),
     );
   }
