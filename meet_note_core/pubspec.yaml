@@ -1,8 +1,7 @@
 name: meet_note_core
 description: A starting point for Dart libraries or applications.
 version: 0.0.1
-# homepage: https://www.example.com
-# author: stesc <ste.schaller@gmx.de>
+# author: tikkr
 
 environment:
   sdk: '>=2.2.0 <3.0.0'
